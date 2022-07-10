@@ -13,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -38,5 +39,8 @@ public class Product {
     @Temporal(TemporalType.DATE)
     @Column(name = "create_at")
     private Date createAt;
+
+    @Transient
+    private Integer port;
 
 }
