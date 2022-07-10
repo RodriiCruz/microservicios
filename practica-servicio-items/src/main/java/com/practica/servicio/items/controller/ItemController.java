@@ -21,6 +21,7 @@ import com.practica.servicio.items.service.ItemService;
 public class ItemController {
 
     @Autowired
+//    @Qualifier("serviceFeign") //cumple la misma función que indicar @Primary en la clase implementada
     private ItemService service;
 
     @GetMapping

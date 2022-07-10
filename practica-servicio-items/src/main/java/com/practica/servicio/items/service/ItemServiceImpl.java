@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.practica.servicio.items.service;
 
 import java.util.Arrays;
