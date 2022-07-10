@@ -31,14 +31,15 @@ public class ItemServiceImpl implements ItemService {
         Map<String, String> pathVariables = new HashMap<String, String>();
         pathVariables.put("id", id.toString());
 
-        Product product = restClient.getForObject("http://localhost:8001/{id}", Product.class, pathVariables);
+        Product product = restClient.getForObject("http://localhost:8001/products/{id}", Product.class, pathVariables);
 
         return new Item(product, quantity);
     }
 
     @Override
     public List<Item> findAll() {
-        List<Product> products = Arrays.asList(restClient.getForObject("http://localhost:8001", Product[].class));
+        List<Product> products = Arrays
+                .asList(restClient.getForObject("http://localhost:8001/products", Product[].class));
 
         return products.stream().map(p -> new Item(p, 1)).collect(Collectors.toList());
     }
