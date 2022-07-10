@@ -16,7 +16,7 @@ import com.practica.servicio.items.entity.Product;
  * 
  * @author Rodrigo Cruz <rodriikc@gmail.com>
  */
-@FeignClient(name = "servicio-productos", url = "localhost:8001/products")
+@FeignClient(name = "servicio-productos/products")
 public interface ProductRestClient {
 
     @GetMapping
