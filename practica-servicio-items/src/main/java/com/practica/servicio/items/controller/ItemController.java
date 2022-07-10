@@ -4,6 +4,7 @@
 package com.practica.servicio.items.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,7 +22,7 @@ import com.practica.servicio.items.service.ItemService;
 public class ItemController {
 
     @Autowired
-//    @Qualifier("serviceFeign") //cumple la misma función que indicar @Primary en la clase implementada
+    @Qualifier("serviceFeign") // cumple la misma función que indicar @Primary en la clase implementada
     private ItemService service;
 
     @GetMapping

@@ -7,7 +7,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
 import com.practica.servicio.items.clients.ProductRestClient;
@@ -19,9 +18,8 @@ import com.practica.servicio.items.entity.Product;
  * @author Rodrigo Cruz <rodriikc@gmail.com>
  */
 @Service("serviceFeign") // indica el nombre de la implementacion, para seleccionarla en el controller
-                         // coon @Qualifier
-@Primary // indica que esta es la implementación que debe inyectarse por defecto en el
-         // controller, ya que hay dos clases que implementan la misma interface
+                         // con @Qualifier
+//@Primary indica que esta es la implementación que debe inyectarse por defecto en el controller, ya que hay dos clases que implementan la misma interface
 public class ItemServiceImplFeign implements ItemService {
 
     @Autowired

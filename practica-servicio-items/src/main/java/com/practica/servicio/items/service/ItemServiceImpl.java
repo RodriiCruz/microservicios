@@ -17,7 +17,7 @@ import com.practica.servicio.items.entity.Product;
  * 
  * @author Rodrigo Cruz <rodriikc@gmail.com>
  */
-@Service
+@Service("serviceRestTemplate")
 public class ItemServiceImpl implements ItemService {
 
     @Autowired
