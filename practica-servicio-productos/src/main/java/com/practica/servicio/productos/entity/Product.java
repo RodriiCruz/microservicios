@@ -41,6 +41,6 @@ public class Product {
     private Date createAt;
 
     @Transient
-    private Integer port;
-
+//    private Integer port;
+    private String instanceId;
 }

@@ -22,6 +22,7 @@ public class Product {
     private String name;
     private Double price;
     private Date createAt;
-    private Integer port;
+//    private Integer port;
+    private String instanceId;
 
 }

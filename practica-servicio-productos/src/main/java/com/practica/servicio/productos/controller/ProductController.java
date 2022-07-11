@@ -29,23 +29,27 @@ public class ProductController {
     @Autowired
     private IProductService service;
 
-    @Value("${server.port}")
-    private Integer port; // muestra el puerto de la instancia que es llamada
+//    @Value("${server.port}")
+//    private Integer port; // muestra el puerto de la instancia que es llamada
+
+    @Value("${eureka.instance.instance-id}")
+    private String instanceId;
 
     @GetMapping
     public ResponseEntity<List<Product>> listAll() {
 
-        return ResponseEntity.status(HttpStatus.OK).body(service.findAll().stream().map(producto -> {
-            producto.setPort(port);
-            return producto;
+        return ResponseEntity.status(HttpStatus.OK).body(service.findAll().stream().map(product -> {
+//            product.setPort(port);
+            product.setInstanceId(instanceId);
+            return product;
         }).collect(Collectors.toList()));
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<Product> getById(@PathVariable Long id) {
         Product product = service.findById(id);
-        product.setPort(port);
-
+//        product.setPort(port);
+        product.setInstanceId(instanceId);
         return ResponseEntity.status(HttpStatus.OK).body(product);
     }
 
