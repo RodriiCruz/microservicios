@@ -18,7 +18,7 @@ import com.practica.servicio.items.service.ItemService;
  * @author Rodrigo Cruz <rodriikc@gmail.com>
  */
 @RestController
-@RequestMapping("/items")
+@RequestMapping // ("/items") ahora lo asigno mediante las configuraciones del gateway
 public class ItemController {
 
     @Autowired

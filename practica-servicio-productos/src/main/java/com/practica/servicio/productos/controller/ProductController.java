@@ -23,7 +23,7 @@ import com.practica.servicio.productos.service.IProductService;
  * @author Rodrigo Cruz <rodriikc@gmail.com>
  */
 @RestController
-@RequestMapping("/products")
+@RequestMapping // ("/products") ahora lo asigno mediante las configuraciones del gateway
 public class ProductController {
 
     @Autowired
