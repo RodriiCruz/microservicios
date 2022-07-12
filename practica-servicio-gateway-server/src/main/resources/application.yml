@@ -1,0 +1,16 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+      - id: servicio-productos
+        uri: lb://servicio-productos #lb://nombreServicio -> ruta a la instancia del microservicio mediante balanceo de cargas
+        predicates:
+          - Path=/api/products/** #ruta base para acceder a los endpoints del microservicio
+        filters:
+          - StripPrefix=2 #indicar la cantidad de segmentos que componen al path -> en este caso, son 2: /api y /products
+      - id: servicio-items
+        uri: lb://servicio-items
+        predicates:
+          - Path=/api/items/**
+        filters:
+          - StripPrefix=2
