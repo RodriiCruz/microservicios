@@ -13,7 +13,7 @@ import com.practica.servicio.productos.entity.Product;
  */
 public interface IProductService {
 
-    Product findById(Long id);
+    Product findById(Long id) throws InterruptedException;
 
     List<Product> findAll();
 
