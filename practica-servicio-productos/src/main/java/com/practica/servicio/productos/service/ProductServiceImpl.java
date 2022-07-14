@@ -31,9 +31,9 @@ public class ProductServiceImpl implements IProductService {
             throw new IllegalStateException();
         }
 
-        if (id.equals(15L)) {
-            // condicion para time out
-            TimeUnit.SECONDS.sleep(5);
+        if (id.equals(5L)) {
+            // condicion para time out. Llamada lenta
+            TimeUnit.SECONDS.sleep(5L);
         }
 
         return repository.findById(id).orElse(null);
