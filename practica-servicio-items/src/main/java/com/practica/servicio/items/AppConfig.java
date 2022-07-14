@@ -30,7 +30,7 @@ public class AppConfig {
     }
 
 
-    @Bean
+//    @Bean
     public Customizer<Resilience4JCircuitBreakerFactory> defultCustomizer() {
         return factory -> factory.configureDefault(id -> {
             return new Resilience4JConfigBuilder(id)

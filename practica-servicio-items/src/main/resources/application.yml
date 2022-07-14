@@ -1,0 +1,23 @@
+#esta configuración tiene prioridad por sobre las configuraciones realizadas en beans
+resilience4J:
+  circuitbreaker:
+    configs:
+      default: #nombre personalizado de la configuracion
+        sliding-window-size: 10
+        failure-rate-threshold: 50
+        wait-duration-in-open-state: 10s
+        permitted-number-of-calls-in-half-open-state: 5
+        slow-call-rate-threshold: 50
+        slow-call-duration-threshold: 2s
+    instances:
+      items: #nombre del CB creado en el controller
+        base-config: default #nombre de la configuracion personalizada
+  timelimiter:
+    configs:
+      default:
+        timeout-duration: 2s
+    instances:
+      items:
+        base-config: default
+        
+    
