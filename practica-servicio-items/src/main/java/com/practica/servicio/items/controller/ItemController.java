@@ -10,6 +10,7 @@ import java.util.concurrent.CompletableFuture;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.core.env.Environment;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,6 +31,7 @@ import io.github.resilience4j.timelimiter.annotation.TimeLimiter;
  */
 @RestController
 @RequestMapping // ("/items") ahora lo asigno mediante las configuraciones del gateway
+@RefreshScope
 public class ItemController {
 
 	@Autowired
