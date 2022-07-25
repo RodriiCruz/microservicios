@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.practica.servicio.items.service;
 
 import java.util.List;
@@ -17,24 +14,40 @@ import com.practica.servicio.items.entity.Product;
  * 
  * @author Rodrigo Cruz <rodriikc@gmail.com>
  */
-@Service("serviceFeign") // indica el nombre de la implementacion, para seleccionarla en el controller
-                         // con @Qualifier
-//@Primary indica que esta es la implementación que debe inyectarse por defecto en el controller, ya que hay dos clases que implementan la misma interface
+@Service("serviceFeign")
 public class ItemServiceImplFeign implements ItemService {
 
-    @Autowired
-    private ProductRestClient restClient;
+	@Autowired
+	private ProductRestClient restClient;
 
-    @Override
-    public Item findById(Long id, Integer quantity) {
-        return new Item(restClient.getById(id).getBody(), quantity);
-    }
+	@Override
+	public Item findById(Long id, Integer quantity) {
+		return new Item(restClient.getById(id).getBody(), quantity);
+	}
 
-    @Override
-    public List<Item> findAll() {
-        List<Product> listProducts = restClient.listAll().getBody();
+	@Override
+	public List<Item> findAll() {
+		List<Product> listProducts = restClient.listAll().getBody();
 
-        return listProducts.stream().map(p -> new Item(p, 1)).collect(Collectors.toList());
-    }
+		return listProducts.stream().map(p -> new Item(p, 1)).collect(Collectors.toList());
+	}
+
+	@Override
+	public Product save(Product product) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Product update(Long id, Product product) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void deleteById(Long id) {
+		// TODO Auto-generated method stub
+
+	}
 
 }

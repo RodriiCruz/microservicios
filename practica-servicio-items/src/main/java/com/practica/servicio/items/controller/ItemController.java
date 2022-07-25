@@ -12,9 +12,14 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.core.env.Environment;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -35,7 +40,7 @@ import io.github.resilience4j.timelimiter.annotation.TimeLimiter;
 public class ItemController {
 
 	@Autowired
-	@Qualifier("serviceFeign") // cumple la misma función que indicar @Primary en la clase implementada
+	@Qualifier("serviceRestTemplate")
 	private ItemService service;
 
 	@Autowired
@@ -70,5 +75,23 @@ public class ItemController {
 		}
 
 		return ResponseEntity.ok(response);
+	}
+
+	@PostMapping
+	public ResponseEntity<?> save(@RequestBody Product product) {
+		Product response = service.save(product);
+		return ResponseEntity.status(HttpStatus.CREATED).body(response);
+	}
+
+	@PutMapping("/{id}")
+	public ResponseEntity<?> update(@PathVariable Long id, @RequestBody Product product) {
+		Product response = service.update(id, product);
+		return ResponseEntity.status(HttpStatus.CREATED).body(response);
+	}
+
+	@DeleteMapping("/{id}")
+	public ResponseEntity<?> deleteById(@PathVariable Long id) {
+		service.deleteById(id);
+		return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
 	}
 }
