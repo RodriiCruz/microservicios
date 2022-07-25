@@ -40,7 +40,7 @@ import io.github.resilience4j.timelimiter.annotation.TimeLimiter;
 public class ItemController {
 
 	@Autowired
-	@Qualifier("serviceRestTemplate")
+	@Qualifier("serviceFeign")
 	private ItemService service;
 
 	@Autowired

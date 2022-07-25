@@ -34,20 +34,17 @@ public class ItemServiceImplFeign implements ItemService {
 
 	@Override
 	public Product save(Product product) {
-		// TODO Auto-generated method stub
-		return null;
+		return restClient.save(product).getBody();
 	}
 
 	@Override
 	public Product update(Long id, Product product) {
-		// TODO Auto-generated method stub
-		return null;
+		return restClient.update(id, product).getBody();
 	}
 
 	@Override
 	public void deleteById(Long id) {
-		// TODO Auto-generated method stub
-
+		restClient.deleteById(id);
 	}
 
 }
