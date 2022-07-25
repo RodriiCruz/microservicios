@@ -1,7 +1,6 @@
-/**
- * 
- */
 package com.practica.servicio.items.entity;
+
+import com.practica.servicio.commons.entity.Product;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -18,10 +17,10 @@ import lombok.NoArgsConstructor;
 @Builder
 public class Item {
 
-    private Product product;
-    private Integer quantity;
+	private Product product;
+	private Integer quantity;
 
-    public Double getTotal() {
-        return product.getPrice() * quantity.doubleValue();
-    }
+	public Double getTotal() {
+		return product.getPrice() * quantity.doubleValue();
+	}
 }

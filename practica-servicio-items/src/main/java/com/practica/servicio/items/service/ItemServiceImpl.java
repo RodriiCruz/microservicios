@@ -13,8 +13,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import com.practica.servicio.commons.entity.Product;
 import com.practica.servicio.items.entity.Item;
-import com.practica.servicio.items.entity.Product;
 
 /**
  * 

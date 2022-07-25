@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-import com.practica.servicio.items.entity.Product;
+import com.practica.servicio.commons.entity.Product;
 
 /**
  * 

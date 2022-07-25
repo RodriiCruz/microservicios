@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.practica.servicio.items.controller;
 
 import java.util.HashMap;
@@ -23,8 +20,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.practica.servicio.commons.entity.Product;
 import com.practica.servicio.items.entity.Item;
-import com.practica.servicio.items.entity.Product;
 import com.practica.servicio.items.service.ItemService;
 
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
@@ -59,7 +56,7 @@ public class ItemController {
 	}
 
 	public CompletableFuture<ResponseEntity<?>> alternativeMethod(Long id, Integer quantity, Throwable e) {
-		Product product = Product.builder().id(id).name("Product XYZ").price(500.00).build();
+		Product product = new Product(id, "Product XYZ", 500.00, null, null);
 		Item item = Item.builder().quantity(3).product(product).build();
 
 		return CompletableFuture.supplyAsync(() -> ResponseEntity.ok(item));

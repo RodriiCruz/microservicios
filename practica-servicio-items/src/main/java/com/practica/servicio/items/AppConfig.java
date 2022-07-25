@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.practica.servicio.items;
 
 import java.time.Duration;

@@ -6,9 +6,9 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.practica.servicio.commons.entity.Product;
 import com.practica.servicio.items.clients.ProductRestClient;
 import com.practica.servicio.items.entity.Item;
-import com.practica.servicio.items.entity.Product;
 
 /**
  * 

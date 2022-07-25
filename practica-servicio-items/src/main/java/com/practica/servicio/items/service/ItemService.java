@@ -2,8 +2,8 @@ package com.practica.servicio.items.service;
 
 import java.util.List;
 
+import com.practica.servicio.commons.entity.Product;
 import com.practica.servicio.items.entity.Item;
-import com.practica.servicio.items.entity.Product;
 
 /**
  * 

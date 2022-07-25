@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.practica.servicio.productos.controller;
 
 import java.util.List;
@@ -19,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.practica.servicio.productos.entity.Product;
+import com.practica.servicio.commons.entity.Product;
 import com.practica.servicio.productos.service.IProductService;
 
 /**
